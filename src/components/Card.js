@@ -1,9 +1,9 @@
-function Cards(props) {
+function Card(props) {
   
   function handleClick() {
     props.onCardClick(props.elem);
   }
-  
+
   return (
     <li className="element">
       <button type="submit" className="element__trashbin" aria-label="Удалить"></button>
@@ -23,4 +23,4 @@ function Cards(props) {
   )
 }
 
-export default Cards;
+export default Card;

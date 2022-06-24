@@ -1,6 +1,6 @@
 import React from "react";
 import api from "../utils/Api";
-import Cards from "./Cards";
+import Card from "./Card";
 
 function Main(props) {
 
@@ -46,7 +46,7 @@ function Main(props) {
       </section>
       <section className="elements" aria-label="Галерея">
         <ul className="elements-list">
-          {cards.map((card) => <Cards key={card._id} elem={card} onCardClick={props.onCardClick} />)}
+          {cards.map((card) => <Card key={card._id} elem={card} onCardClick={props.onCardClick} />)}
         </ul>
       </section>
     </main>
