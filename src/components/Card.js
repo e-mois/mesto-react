@@ -9,7 +9,7 @@ function Card(props) {
       <button type="submit" className="element__trashbin" aria-label="Удалить"></button>
       <div className="element__image-container">
         <a href="#" className="element__link">
-          <img src={`${props.elem.link}`} alt={`${props.elem.name}`} className="element__image" onClick={handleClick} />
+          <img src={props.elem.link} alt={props.elem.name} className="element__image" onClick={handleClick} />
         </a>
       </div>
       <div className="element__info">

@@ -33,14 +33,14 @@ function App() {
 
   return (
     <div className="page">
-      <Header></Header>
+      <Header/>
       <Main
         onEditProfile={handleEditProfileClick}
         onAddPlace={handleAddPlaceClick}
         onEditAvatar={handleEditAvatarClick}
         onCardClick={setSelectedCard}
-      ></Main>
-      <Footer></Footer>
+      />
+      <Footer/>
       <PopupWithForm
         name='profile'
         title='Редактировать профиль'
@@ -48,16 +48,14 @@ function App() {
         isOpen={isEditProfilePopupOpen}
         onClose={closeAllPopup}
       >
-        <>
-          <label htmlFor="input-name" className="popup__label">
-            <input type="text" id="input-name" className="popup__input popup__input_type_name" value="" required minLength="2" maxLength="40" name="name" placeholder="Имя"/>
-            <span className="input-name-error popup__input-error"></span>
-          </label>
-          <label htmlFor="input-about" className="popup__label">
-            <input type="text" id="input-about" className="popup__input popup__input_type_about" value="" required minLength="2" maxLength="200" name="about" placeholder="Занятие" />
-            <span className="input-about-error popup__input-error"></span>
-          </label>
-        </>
+        <label htmlFor="input-name" className="popup__label">
+          <input type="text" id="input-name" className="popup__input popup__input_type_name" value="" required minLength="2" maxLength="40" name="name" placeholder="Имя"/>
+          <span className="input-name-error popup__input-error"></span>
+        </label>
+        <label htmlFor="input-about" className="popup__label">
+          <input type="text" id="input-about" className="popup__input popup__input_type_about" value="" required minLength="2" maxLength="200" name="about" placeholder="Занятие" />
+          <span className="input-about-error popup__input-error"></span>
+        </label>
       </PopupWithForm>
       <PopupWithForm
         name='avatar'
@@ -66,12 +64,10 @@ function App() {
         isOpen={isEditAvatarPopupOpen}
         onClose={closeAllPopup}
       >
-        <>
-          <label htmlFor="input-avatar" className="popup__label">
-            <input type="url" id="input-avatar" className="popup__input popup__input_type_avatar" placeholder="Ссылка на картинку" required name="link" />
-            <span className="input-avatar-error popup__input-error"></span>
-          </label>
-        </>
+        <label htmlFor="input-avatar" className="popup__label">
+          <input type="url" id="input-avatar" className="popup__input popup__input_type_avatar" placeholder="Ссылка на картинку" required name="link" />
+          <span className="input-avatar-error popup__input-error"></span>
+        </label>
       </PopupWithForm>
       <PopupWithForm
         name='add-place'
@@ -80,16 +76,14 @@ function App() {
         isOpen={isAddPlacePopupOpen}
         onClose={closeAllPopup}
       >
-        <>
-          <label htmlFor="input-place-name" className="popup__label">
-            <input type="text" id="input-place-name" className="popup__input popup__input_type_place-name" placeholder="Название" required minLength="2" maxLength="30" name="name" />
-            <span className="input-place-name-error popup__input-error"></span>
-          </label>
-          <label htmlFor="input-place-link" className="popup__label">
-            <input type="url" id="input-place-link" className="popup__input popup__input_type_place-link" placeholder="Ссылка на картинку" required name="link" />
-            <span className="input-place-link-error popup__input-error"></span>
-          </label>
-        </>
+        <label htmlFor="input-place-name" className="popup__label">
+          <input type="text" id="input-place-name" className="popup__input popup__input_type_place-name" placeholder="Название" required minLength="2" maxLength="30" name="name" />
+          <span className="input-place-name-error popup__input-error"></span>
+        </label>
+        <label htmlFor="input-place-link" className="popup__label">
+          <input type="url" id="input-place-link" className="popup__input popup__input_type_place-link" placeholder="Ссылка на картинку" required name="link" />
+          <span className="input-place-link-error popup__input-error"></span>
+        </label>
       </PopupWithForm>
       <PopupWithForm
         name='delete'
@@ -101,8 +95,7 @@ function App() {
         name='image'
         card={selectedCard}
         onClose={closeAllPopup}
-      >
-      </ImagePopup>
+      />
       
       <script src="script/index.js" type="module"></script>
       

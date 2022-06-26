@@ -15,15 +15,20 @@ function Main(props) {
       setUserName(res.name);
       setUserDescription(res.about);
       setUserAvatar(res.avatar);
+    })
+    .catch((err) => {
+      console.log(err)
     });
   }, [userName, userDescription, userAvatar])
 
   React.useEffect(() => {
     api.getCards()
     .then(res => {
-      //console.log(res);
-      getListCards(res);
+      getListCards(res)
     })
+    .catch((err) => {
+      console.log(err)
+    });
   })
 
   return (
@@ -31,7 +36,7 @@ function Main(props) {
       <section className="profile">
         <div className="profile__info">
           <a href="#" className="profile__avatar-link" onClick={props.onEditAvatar}>
-            <img src={`${userAvatar}`} alt="Аватар" className="profile__avatar"/>
+            <img src={userAvatar} alt="Аватар" className="profile__avatar"/>
           </a>
           <div className="profile__person">
             <div className="profile__edit-block">
