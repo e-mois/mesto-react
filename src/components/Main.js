@@ -19,7 +19,7 @@ function Main(props) {
     .catch((err) => {
       console.log(err)
     });
-  }, [userName, userDescription, userAvatar])
+  }, [])
 
   React.useEffect(() => {
     api.getCards()
@@ -29,7 +29,7 @@ function Main(props) {
     .catch((err) => {
       console.log(err)
     });
-  })
+  }, [])
 
   return (
     <main className="content">
