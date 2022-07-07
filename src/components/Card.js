@@ -29,7 +29,7 @@ function Card(props) {
 
   return (
     <li className="element">
-      <button type="submit" className={cardDeleteButtonClassName} aria-label="Удалить" onClick={handleCardDelete}></button>
+      <button className={cardDeleteButtonClassName} aria-label="Удалить" onClick={handleCardDelete}></button>
       <div className="element__image-container">
         <a href="#" className="element__link">
           <img src={props.elem.link} alt={props.elem.name} className="element__image" onClick={handleClick} />
@@ -38,7 +38,7 @@ function Card(props) {
       <div className="element__info">
         <h2 className="element__title">{props.elem.name}</h2>
         <div className="element__like-container">
-          <button type="submit" className={cardLikeButtonClassName} aria-label="" onClick={handleCardLike}></button>
+          <button className={cardLikeButtonClassName} aria-label="" onClick={handleCardLike}></button>
           <p className="element__like-count">{props.elem.likes.length}</p>
         </div>
       </div>

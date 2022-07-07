@@ -12,9 +12,9 @@ import AddPlacePopup from "./AddPlacePopup";
 
 function App() {
   
-  const [isEditProfilePopupOpen, setEditProfilePopup] = useState(false);
-  const [isAddPlacePopupOpen, setAddPlacePopup] = useState(false);
-  const [isEditAvatarPopupOpen, setAvatarPopup] = useState(false);
+  const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
+  const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
+  const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState({});
   const [currentUser, setCurrentUser] = useState({});
   const [cards, setCards] = useState([]);
@@ -43,8 +43,7 @@ function App() {
   function handleCardDelete(card) {
     api.deleteCard(card._id)
     .then(() => {
-      const newArr = cards.filter(item => item._id !== card._id);
-      setCards(newArr);
+      setCards((state) => state.filter(item => item._id !== card._id));
     })
     .catch((err) => {
       console.log(err);
@@ -52,21 +51,21 @@ function App() {
   }
 
   function handleEditAvatarClick() {
-    setAvatarPopup(true);
+    setIsEditAvatarPopupOpen(true);
   }
 
   function handleEditProfileClick() {
-    setEditProfilePopup(true);
+    setIsEditProfilePopupOpen(true);
   }
 
   function handleAddPlaceClick() {
-    setAddPlacePopup(true);
+    setIsAddPlacePopupOpen(true);
   }
 
   function closeAllPopups() {
-    setAddPlacePopup(false);
-    setAvatarPopup(false);
-    setEditProfilePopup(false);
+    setIsAddPlacePopupOpen(false);
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
     setSelectedCard({});
   }
 
@@ -140,10 +139,7 @@ function App() {
           name='image'
           card={selectedCard}
           onClose={closeAllPopups}
-        />
-        
-        <script src="script/index.js" type="module"></script>
-        
+        />       
       </div>
     </CurrentUserContext.Provider>
   );

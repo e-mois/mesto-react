@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup(props) {
 
   const [name, setName] = useState('');
   const [link, setLink] = useState('');
+
+  useEffect(() => {
+    setName('');
+    setLink('');
+  }, [props.isOpen]);
 
   function handleChangeName(event) {
     setName(event.target.value);
@@ -43,6 +48,7 @@ function AddPlacePopup(props) {
           maxLength="30" 
           name="name" 
           onChange={handleChangeName}
+          value={name}
         />
         <span className="input-place-name-error popup__input-error"></span>
       </label>
@@ -55,6 +61,7 @@ function AddPlacePopup(props) {
           required 
           name="link" 
           onChange={handleChangeLink}
+          value={link}
         />
         <span className="input-place-link-error popup__input-error"></span>
       </label>
