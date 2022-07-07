@@ -50,20 +50,20 @@ class Api {
     .then(this._checkResponseStatus);
   }
 
-  activateLike(cardID) {
-    return fetch(`${this._options.baseUrl}/cards/${cardID}/likes`, {
-      method: 'PUT',
-      headers: this._options.headers
-    })
-    .then(this._checkResponseStatus);
-  }
-
-  disactivateLike(cardID) {
-    return fetch(`${this._options.baseUrl}/cards/${cardID}/likes`, {
-      method: 'DELETE',
-      headers: this._options.headers
-    })
-    .then(this._checkResponseStatus);
+  toggleLike(cardID, isLiked) {
+    if (!isLiked) {
+      return fetch(`${this._options.baseUrl}/cards/${cardID}/likes`, {
+        method: 'PUT',
+        headers: this._options.headers
+      })
+      .then(this._checkResponseStatus);
+    } else {
+      return fetch(`${this._options.baseUrl}/cards/${cardID}/likes`, {
+        method: 'DELETE',
+        headers: this._options.headers
+      })
+      .then(this._checkResponseStatus);
+    } 
   }
 
   changeAvatar(data) {
